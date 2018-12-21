@@ -20,7 +20,7 @@
 		$(function(){
 			//点击更换验证码：
 			$("#captchaImage").click(function(){//点击更换验证码
-				//$("#captchaImage").prop("src","${pageContext.request.contextPath}/code/getImgCode?time="+new Date());
+				$("#captchaImage").prop("src","${pageContext.request.contextPath}/code/getCode?time="+new Date());
 
 			});
 
@@ -32,14 +32,12 @@
             });
             $("#enCode").textbox({//验证码
                 required:true,
-			})
-
-			$("#loginButton").linkbutton({
-                iconCls:"icon-save",
-				Onclick:function(){
+			});
+			$(".loginButton").linkbutton({
+				onClick:function(){
                     //  form 表单提交
                     $("#loginForm").form("submit", {
-                        url:"${pageContext.request.contextPath }/user/login",
+                        url:"${pageContext.request.contextPath }/admin/login",
                         onSubmit:function(){
                             // 表单验证 -- 调form的validate方法
                             return $("#loginForm").form("validate");
@@ -72,7 +70,7 @@
 					<tbody>
 						<tr>
 							<td width="190" rowspan="2" align="center" valign="bottom">
-								<img width="60" src="img/222.jpg" />
+								<img width="90" src="img/222.jpg" />
 							</td>
 							<th>
 								用户名:
@@ -95,7 +93,7 @@
 							<th>验证码:</th>
 							<td>
 								<input type="text" id="enCode" name="enCode" class="text captcha" maxlength="4" autocomplete="off"/>
-								<img id="captchaImage" class="captchaImage" src='${pageContext.request.contextPath }/code/getImgCode' title="点击更换验证码"/>
+								<img id="captchaImage" class="captchaImage" src="${pageContext.request.contextPath }/code/getCode" title="点击更换验证码"/>
 							</td>
 						</tr>					
 					<tr>
@@ -111,7 +109,7 @@
 						<th>&nbsp;</th>
 						<td>
 							<input type="button" class="homeButton" value="" onclick="location.href='/'">
-							<input  id="loginButton" class="loginButton" value="登录">
+							<input  class="loginButton" value="登录">
 						</td>
 					</tr>
 				</tbody></table>

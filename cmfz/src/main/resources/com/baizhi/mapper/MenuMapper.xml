@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.baizhi.mapper.MenuMapper">
+	<resultMap id="All" type="com.baizhi.enitty.Menu">
+		<id column="fid" property="id"/>
+		<result column="ftitle" property="title"/>
+		<result column="ficon" property="iconCls"/>
+		<result column="furl" property="url"/>
+		<collection property="children" ofType="com.baizhi.enitty.Menu">
+			<id column="sid" property="id"/>
+			<result column="stitle" property="title" />
+			<result column="sicon" property="iconCls"/>
+			<result column="surl" property="url"/>
+		</collection>
+	</resultMap>
+ 	
+ 	<select id="getAll"  resultMap="All">
+		select f.id fid,f.title ftitle,f.icon_cls ficon,f.url furl,
+		       s.id sid,s.title stitle,s.icon_cls sicon,s.url surl
+		from MENU f join MENU s
+		  on f.id = s.parent_id
+	</select>
+ 	
+
+ 
+</mapper>

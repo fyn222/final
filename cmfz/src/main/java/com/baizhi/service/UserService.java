@@ -6,6 +6,5 @@ import java.util.List;
 
 public interface UserService {
     public List<User> queryAll();
-    public User queryOne(String phone,String password);
 
 }

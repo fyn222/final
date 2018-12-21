@@ -18,8 +18,4 @@ public class UserController {
     public List<User> queryAll(){
         return userService.queryAll();
     }
-    @RequestMapping("/login")
-    public User login(String phone,String password){
-        return  userService.queryOne(phone, password);
-    }
 }

@@ -1,22 +1,22 @@
 package com.baizhi.service;
 
-import com.baizhi.enitty.User;
-import com.baizhi.mapper.UserMapper;
+import com.baizhi.enitty.Menu;
+import com.baizhi.mapper.MenuMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+
 @Service
 @Transactional
-public class UserServiceImpl implements UserService {
+public class MenuServiceImpl implements MenuService {
     @Autowired
-    UserMapper userMapper;
+    MenuMapper menuMapper;
+
     @Override
-    public List<User> queryAll() {
-        List<User> users = userMapper.selectAll();
+    public List<Menu> queryAll() {
 
-        return users;
+        return menuMapper.getAll();
     }
-
 }

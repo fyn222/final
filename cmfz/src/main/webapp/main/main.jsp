@@ -2,15 +2,56 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>持名法州主页</title>
-<link rel="stylesheet" type="text/css" href="../themes/default/easyui.css">   
-<link rel="stylesheet" type="text/css" href="../themes/IconExtension.css">   
-<script type="text/javascript" src="../js/jquery.min.js"></script>   
-<script type="text/javascript" src="../js/jquery.easyui.min.js"></script>  
-<script type="text/javascript" src="../js/easyui-lang-zh_CN.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>持名法州主页</title>
+    <link rel="stylesheet" type="text/css" href="../themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../themes/icon.css">
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="../js/datagrid-detailview.js"></script>
+    <script type="text/javascript" src="../js/jquery.edatagrid.js">
+    </script><script type="text/javascript" src="../js/easyui-lang-zh_CN.js"></script>
 <script type="text/javascript">
 	<!--菜单处理-->
+    $(function () {
+        $.ajax({
+            url: "${pageContext.request.contextPath}/menu/getAll",
+            dataType: "JSON",
+            success: function (data) {
+                $.each(data, function (index, first) {
+                    var a = "";
+                    $.each(first.children, function (index1, second) {
+                        a += "<p style='text-align: center'><a id=\"btn\" href=\"#\" class=\"easyui-linkbutton\" onclick=\"addTabs('" + second.title + "','" + second.iconCls + "','" + second.url + "')\" data-options=\"iconCls:'icon-search'\">" + second.title + "</a></p>";
+                    })
+                    $('#aa').accordion('add', {
+                        title: first.title,
+                        iconCls: first.iconCls,
+                        content: a,
+                        selected: false
+                    });
+
+                })
+            }
+        })
+    })
+
+    function addTabs(title, iconCls, url) {
+        var a = $("#tt").tabs("exists", title)
+        if (a) {
+            $("#tt").tabs("select", title)
+        } else {
+            $('#tt').tabs('add', {
+                title: title,
+                iconCls: "icon-save",
+                href: "${pageContext.request.contextPath}/" + url,
+                selected: true,
+                closable: true
+
+            });
+        }
+
+    }
+
 </script>
 
 </head>
@@ -25,15 +66,7 @@
        
     <div data-options="region:'west',title:'导航菜单',split:true" style="width:220px;">
     	<div id="aa" class="easyui-accordion" data-options="fit:true">
-            <div title="首页轮播图" data-options="iconCls:'icon-save'" style="overflow:auto;padding:10px;">
-            </div>
-            <div title="Title2" data-options="iconCls:'icon-reload',selected:true" style="padding:10px;">
-                content2
-            </div>
 
-            <div title="Title3">
-                content3
-            </div>
         </div>
     </div>   
     <div data-options="region:'center'">
