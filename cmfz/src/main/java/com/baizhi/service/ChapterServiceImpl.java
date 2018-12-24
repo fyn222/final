@@ -1,6 +1,6 @@
 package com.baizhi.service;
 
-import com.baizhi.enitty.Chapter;
+import com.baizhi.entity.Chapter;
 import com.baizhi.mapper.ChapterMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

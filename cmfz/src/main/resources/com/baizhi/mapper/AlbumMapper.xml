@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.baizhi.mapper.AlbumMapper">
+	<resultMap id="All" type="com.baizhi.entity.Album">
+		<id column="fid" property="id"/>
+		<result column="ftitle" property="title"/>
+		<result column="fcount" property="count"/>
+		<result column="fcover" property="coverImg"/>
+		<result column="fscore" property="score"/>
+		<result column="fauthor" property="author"/>
+		<result column="fbroadcast" property="broadcast"/>
+		<result column="fbrief" property="brief"/>
+		<result column="fpub" property="pubDate"/>
+		<collection property="children" ofType="com.baizhi.entity.Chapter">
+			<id column="sid" property="id"/>
+			<result column="stitle" property="title" />
+			<result column="ssize" property="size"/>
+			<result column="sduration" property="duration"/>
+			<result column="surl" property="url"/>
+			<result column="supload" property="uploadDate"/>
+		</collection>
+	</resultMap>
+ 	
+ 	<select id="queryAll"  resultMap="All">
+		select f.id fid,f.title ftitle,f.count fcount,f.cover_img fcover,f.score fscore,f.author fauthor,f.broadcast fbroadcast,f.brief fbrief,f.pub_date fpub,
+		       s.id sid,s.title stitle,s.size ssize,s.duration sduration,s.url surl,s.upload_date supload
+		from album f left join chapter s
+		  on f.id = s.album_id
+	</select>
+ 	
+
+ 
+</mapper>

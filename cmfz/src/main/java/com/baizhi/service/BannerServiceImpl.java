@@ -1,6 +1,6 @@
 package com.baizhi.service;
 
-import com.baizhi.enitty.Banner;
+import com.baizhi.entity.Banner;
 import com.baizhi.mapper.BannerMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

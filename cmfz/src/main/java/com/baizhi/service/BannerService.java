@@ -1,6 +1,6 @@
 package com.baizhi.service;
 
-import com.baizhi.enitty.Banner;
+import com.baizhi.entity.Banner;
 
 import java.util.List;
 

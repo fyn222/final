@@ -1,6 +1,6 @@
 package com.baizhi.controller;
 
-import com.baizhi.enitty.Banner;
+import com.baizhi.entity.Banner;
 import com.baizhi.service.BannerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;

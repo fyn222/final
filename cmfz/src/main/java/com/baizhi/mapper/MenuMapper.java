@@ -1,6 +1,6 @@
 package com.baizhi.mapper;
 
-import com.baizhi.enitty.Menu;
+import com.baizhi.entity.Menu;
 import tk.mybatis.mapper.common.Mapper;
 
 import java.util.List;

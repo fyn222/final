@@ -1,6 +1,6 @@
 package com.baizhi.controller;
 
-import com.baizhi.enitty.Admin;
+import com.baizhi.entity.Admin;
 import com.baizhi.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;

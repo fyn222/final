@@ -1,6 +1,6 @@
 package com.baizhi.service;
 
-import com.baizhi.enitty.Menu;
+import com.baizhi.entity.Menu;
 
 import java.util.List;
 

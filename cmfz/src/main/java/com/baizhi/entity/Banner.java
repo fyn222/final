@@ -1,4 +1,4 @@
-package com.baizhi.enitty;
+package com.baizhi.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;

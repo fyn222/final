@@ -15,5 +15,9 @@ spring:
     view:
       prefix: /
       suffix: .jsp
+  http:
+    multipart:
+      max-file-size: 500Mb
+      max-request-size: 500Mb
 mybatis:
   type-aliases-package: com.baizhi.entity

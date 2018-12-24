@@ -1,6 +1,6 @@
 package com.baizhi.service;
 
-import com.baizhi.enitty.Menu;
+import com.baizhi.entity.Menu;
 import com.baizhi.mapper.MenuMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
